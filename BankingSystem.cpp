@@ -50,7 +50,7 @@ savingsAccount::savingsAccount() : bankAccount() {
     set_balance(0);
     minimumBalance = 1000;
 }
-void set_minimumBalance(float minimumBalance) {
+void savingsAccount:: set_minimumBalance(float minimumBalance) {
     if (minimumBalance < 1000) {
         cout << "Minimum balance must be greater than 1000" << endl;
     } else {
