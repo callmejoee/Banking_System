@@ -26,13 +26,11 @@ public:
 };
 
 class savingsAccount : public bankAccount {
-private:
-    float minimumBalance = 1000;
+
 public:
     savingsAccount();
-    savingsAccount(int accountID, float balance, float minimumBalance);
-    void set_minimumBalance(float minimumBalance);
-    float get_minimumBalance();
+    savingsAccount(int accountID, float balance);
+    void set_balance(float balance);
     void withdraw(float amount);
     void deposit(float amount);
     void display();
@@ -43,6 +41,7 @@ private:
     string name;
     string address;
     string phone;
+    int accountID;
 
 public:
     client();
@@ -54,6 +53,8 @@ public:
     string get_address();
     string get_phone();
     void display();
+    void set_accountID(int accountID);
+    int get_accountID();
 };
 
 class Bank_Application {
@@ -66,6 +67,10 @@ private:
     Bank_Application(){
     }
     void displayMenu();
+    void createAccount();
+    void deposit();
+    void withdraw();
+    void listClients();
 
 
 };
