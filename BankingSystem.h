@@ -73,6 +73,7 @@ public:
 class Bank_Application
 {
 private:
+    bool is_saving;
     int choice;
     vector<client> clients;
 
