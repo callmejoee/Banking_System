@@ -17,7 +17,6 @@ private:
 
 public:
     bankAccount();
-    bankAccount(int accountID, float balance);
     void set_accountID(int accountID);
     void set_balance(float balance);
     int get_accountID();
@@ -29,6 +28,8 @@ public:
 
 class savingsAccount : public bankAccount
 {
+private:
+    double minimumBalance;
 
 public:
     savingsAccount();
@@ -42,6 +43,7 @@ public:
 class client
 {
 private:
+    bool is_saving = false;
     string name;
     string address;
     string phone;
@@ -56,6 +58,7 @@ public:
     void set_phone(string phone);
     void set_basic_balance(float balance);
     void set_savings_balance(float balance);
+    void is_savings_flag();
     void display_basic();
     void display_savings();
     void basic_deposit(float amount);
@@ -65,6 +68,7 @@ public:
     string get_name();
     string get_address();
     string get_phone();
+    bool get_saving_flag();
     void display();
     void set_accountID(int accountID);
     int get_accountID();
@@ -73,7 +77,6 @@ public:
 class Bank_Application
 {
 private:
-    bool is_saving;
     int choice;
     vector<client> clients;
 
