@@ -18,9 +18,7 @@ private:
     vector<client> clients;
 
 public:
-    Bank_Application()
-    {
-    }
+    Bank_Application();
     void displayMenu();
     void createAccount();
     void deposit();
