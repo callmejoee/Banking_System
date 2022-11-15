@@ -45,4 +45,3 @@ void savingsAccount::deposit(float amount)
         cout << "Cannot deposit less than 100" << endl;
     }
 }
-

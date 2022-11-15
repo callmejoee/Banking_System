@@ -23,9 +23,10 @@ public:
     }
     void displayMenu();
     void createAccount();
+    void listClients();
     void deposit();
     void withdraw();
-    void listClients();
+
 };
 
 #endif // BANKING_SYSTEM_BANKINGSYSTEM_H
