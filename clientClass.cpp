@@ -1,119 +1,103 @@
 #include "clientClass.h"
 
-
 client::client()
 {
     name = "";
     address = "";
     phone = "";
-    is_saving = false;
 }
 
-client::client(string& newName, string& newAddress, string& newPhone)
-    : name(newName), address(newAddress), phone(newPhone){}
+client::client(string &newName, string &newAddress, string &newPhone)
+    : name(newName), address(newAddress), phone(newPhone) {}
 
-void client::set_name(string& newName)
+void client::setAccount()
+{
+    cout << "Enter client name: ";
+    string client_name;
+    cin >> client_name;
+    setName(client_name);
+
+    cout << "Enter client address: ";
+    string client_address;
+    cin >> client_address;
+    setAddress(client_address);
+
+    cout << "Enter client phone: ";
+    string client_phone;
+    cin >> client_phone;
+    setPhone(client_phone);
+
+    cout << "What type of account do you want to create?" << endl;
+    cout << "1. Savings Account" << endl;
+    cout << "2. Basic Account" << endl;
+
+    int account_type;
+    cin >> account_type;
+    if (account_type == 1)
+    {
+        pBankAccount = &savingAccount;
+        pBankAccount->setAccount();
+    }
+    else if (account_type == 2)
+    {
+        pBankAccount = &basicAccount;
+        pBankAccount->setAccount();
+    }
+    else
+    {
+        cout << "Invalid choice" << endl;
+    }
+}
+void client::setName(string &newName)
 {
     name = newName;
 }
 
-void client::set_address(string& newAddress)
+void client::setAddress(string &newAddress)
 {
     address = newAddress;
 }
 
-void client::set_phone(string& newPhone)
+void client::setPhone(string &newPhone)
 {
     phone = newPhone;
 }
 
-void client::set_balance(float amount){
-    if(get_saving_flag() == true){
-        pSavingAccount->set_balance(amount);
-    }
-    else{
-        pBasicAccount->set_balance(amount);
-    }
-}
-
-
-void client::set_accountID()
-{
-    static long int newID = 2021000;
-    if(get_saving_flag()){
-        pSavingAccount->set_accountID(newID++);
-    }
-    else{
-        pBasicAccount->set_accountID(newID++);
-    }
-}
-
-string client::get_name() const
+string client::getName() const
 {
     return name;
 }
 
-string client::get_address() const
+string client::getAddress() const
 {
     return address;
 }
 
-string client::get_phone() const
+string client::getPhone() const
 {
     return phone;
 }
 
-int client::get_accountID() const
+int client::getAccountID() const
 {
-    if(get_saving_flag()){
-        return savingAccount.get_accountID();
-    }
-    else{
-        return basicAccount.get_accountID();
-    }
+    return pBankAccount->getAccountID();
 }
 
-bool client::get_saving_flag() const
+void client::deposit(float amount)
 {
-    return is_saving;
+    pBankAccount->deposit(amount);
 }
 
-void client::deposit(float amount){
-    if(get_saving_flag()){
-        savingAccount.deposit(amount);
-    }
-    else{
-        basicAccount.deposit(amount);
-    }
-}
-
-
-void client::withdraw(float amount){
-    if(get_saving_flag()){
-        savingAccount.withdraw(amount);
-    }
-    else{
-        basicAccount.withdraw(amount);
-    }
-}
-
-void client::displayAccount() const{
-    if(get_saving_flag()){
-        savingAccount.display();
-    }
-    else{
-        basicAccount.display();
-    }
-}
-
-void client::display() const
+void client::withdraw(float amount)
 {
-    cout << "Name: " << get_name() << endl;
-    cout << "Address: " << get_address() << endl;
-    cout << "Phone: " << get_phone() << endl;
+    pBankAccount->withdraw(amount);
 }
 
-void client::is_savings_flag()
-{
-    is_saving = true;
+
+void client::displayAccount()const{
+    cout << "Name: " << getName() << endl;
+    cout << "Address: " << getAddress() << endl;
+    cout << "Phone: " << getPhone() << endl;
+    pBankAccount->display();
 }
+

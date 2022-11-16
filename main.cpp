@@ -3,7 +3,8 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     Bank_Application bank;
     bank.displayMenu();
 

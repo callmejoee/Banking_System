@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 class Bank_Application
 {
 private:
@@ -26,7 +25,6 @@ public:
     void listClients();
     void deposit();
     void withdraw();
-
 };
 
 #endif // BANKING_SYSTEM_BANKINGSYSTEM_H

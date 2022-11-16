@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 class bankAccount
 {
 private:
@@ -14,17 +13,17 @@ private:
 
 public:
     bankAccount();
-    void set_accountID(int);
-    virtual void set_balance(float = 0.0);
+    void setAccount();
+    void setAccountID();
+    virtual void setBalance(float = 0.0);
 
-    int get_accountID() const;
-    float get_balance() const;
+    int getAccountID() const;
+    float getBalance() const;
 
     virtual void deposit(float);
     virtual void withdraw(float);
 
-    virtual void display() const;
+    void display() const;
 };
-
 
 #endif // BASICACCOUNT_H_INCLUDED

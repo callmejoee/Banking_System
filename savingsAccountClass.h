@@ -4,7 +4,8 @@
 #include "basicAccount.h"
 
 using namespace std;
-class savingsAccount : public bankAccount{
+class savingsAccount : public bankAccount
+{
 private:
     double minimumBalance;
 
@@ -12,12 +13,11 @@ public:
     savingsAccount();
     savingsAccount(int, float);
 
-    virtual void set_balance(float) override;
+    virtual void setBalance(float) override;
     virtual void withdraw(float) override;
     virtual void deposit(float) override;
 
-    //virtual void display() const override;
+    // virtual void display() const override;
 };
-
 
 #endif // SAVINGSACCOUNTCLASS_H_INCLUDED

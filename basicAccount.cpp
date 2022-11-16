@@ -7,20 +7,31 @@ bankAccount::bankAccount() : accountID(0), balance(0.0)
 {
 }
 
-void bankAccount::set_accountID(int newID)
+void bankAccount::setAccount()
 {
-    accountID = newID;
+    cout << "Enter starting balance: ";
+    float new_balance;
+    cin >> new_balance;
+    setBalance(new_balance);
+    setAccountID();
 }
 
-void bankAccount::set_balance(float balance)
+void bankAccount::setAccountID()
 {
-    this->balance = balance;
+    static long int newID = 2021000;
+    accountID = newID++;
 }
-int bankAccount::get_accountID() const
+
+void bankAccount::setBalance(float new_balance)
+{
+    balance = new_balance;
+}
+int bankAccount::getAccountID() const
 {
     return accountID;
 }
-float bankAccount::get_balance() const
+
+float bankAccount::getBalance() const
 {
     return balance;
 }
@@ -37,8 +48,6 @@ void bankAccount::withdraw(float amount)
 
 void bankAccount::display() const
 {
-    cout << "Account ID: " << to_string(get_accountID()) << endl;
-    cout << "Balance: " << get_balance() << endl;
+    cout << "Account ID: " << to_string(getAccountID()) << endl;
+    cout << "Balance: " << getBalance() << endl;
 }
-
-

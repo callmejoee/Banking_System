@@ -4,33 +4,32 @@
 savingsAccount::savingsAccount()
     : minimumBalance(1000)
 {
-    bankAccount::set_balance(minimumBalance);
+    bankAccount::setBalance(minimumBalance);
 }
 
-void savingsAccount::set_balance(float balance)
+void savingsAccount::setBalance(float new_balance)
 {
-    if (balance >= minimumBalance)
+    if (new_balance >= minimumBalance)
     {
-        bankAccount::set_balance(balance);
+        bankAccount::setBalance(new_balance);
     }
-    while (balance < minimumBalance)
+    while (new_balance < minimumBalance)
     {
         cout << "Balance must be greater than " << minimumBalance << endl;
-        cin >> balance;
-        bankAccount::set_balance(balance);
+        cin >> new_balance;
+        bankAccount::setBalance(new_balance);
     }
 }
-
 
 void savingsAccount::withdraw(float amount)
 {
-    if (bankAccount::get_balance() - amount < minimumBalance)
+    if (getBalance() - amount < minimumBalance)
     {
         cout << "Cannot withdraw more than minimum balance" << endl;
     }
     else
     {
-        bankAccount::set_balance(get_balance() - amount);
+        bankAccount::setBalance(getBalance() - amount);
     }
 }
 
